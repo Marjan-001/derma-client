@@ -1,38 +1,62 @@
 import React from 'react';
-import logo from '../assests/images/DerMa-removebg-preview.png'
+// import logo from '../assests/images/DerMa__1_-removebg-preview.png'
 
 const Navbar = () => {
+
+
+    const navItems = <>
+
+        <li>
+            <a className='px-4 -mb-1 border-b-2 hover:border-blue-400 hover:bg-blue-200    text-black '>About</a>
+
+        </li>
+
+        <li>
+            <a className='px-4 -mb-1 border-b-2 hover:border-blue-400  hover:bg-blue-200   text-black '>Contact</a>
+        </li>
+        <li>
+            <a className='px-4 -mb-1 border-b-2 hover:border-blue-400  hover:bg-blue-200   text-black '>Treatment</a>
+        </li>
+        <li>
+            <a className='px-4 -mb-1 border-b-2 hover:border-blue-400  hover:bg-blue-200   text-black '>Appointment</a>
+        </li>
+
+
+
+
+        <li >
+            <a href="#" className=" px-8 py-3 rounded  hover:bg-blue-200 text-blueborder-blue-400" >Sign in</a>
+        </li>
+
+
+
+
+    </>
     return (
-        <header className="p-1 bg-amber-50 dark:text-gray-100">
-            <div className="container flex justify-between h-16 mx-auto">
-                <a rel="noopener noreferrer" href="#" aria-label="Back to homepage" className="flex items-center p-2">
-                    <img src={logo} className='w-28 h-28 object-cover' alt="" />
-                </a>
-                <ul className="items-stretch hidden space-x-3 lg:flex">
-                    <li className="flex">
-                        <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 hover:border-amber-950 text-amber-950 ">About</a>
-                    </li>
-                    <li className="flex">
-                        <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2  hover:border-amber-950  text-amber-950">Contact</a>
-                    </li>
-                    <li className="flex">
-                        <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2  hover:border-amber-950  text-amber-950">Services</a>
-                    </li>
-                    <li className="flex">
-                        <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2  hover:border-amber-950  text-amber-950">Appointment</a>
-                    </li>
-                </ul>
-                <div className="items-center flex-shrink-0 hidden lg:flex">
-                    <button className="self-center px-8 py-3 rounded">Sign in</button>
-                    <button className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Sign up</button>
+
+
+        <div className="navbar  bg-white py-4 text-black justify-around">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+                    <ul tabIndex={0} className="menu menu-compact bg-blue-200 dropdown-content mt-3 p-2 shadow rounded-box w-52">
+
+                        {navItems}
+
+                    </ul>
                 </div>
-                <button className="p-4 lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-gray-100">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+                <h1 className='text-2xl lg:text-4xl  text-blue-400 font-extrabold'>Derma</h1>
             </div>
-        </header>
+            <div className="navbar-center hidden lg:flex">
+                <ul className="menu menu-horizontal   items-stretch  space-x-3">
+                    {navItems}
+                </ul>
+            </div>
+
+        </div>
+
     );
 };
 
