@@ -1,0 +1,51 @@
+.wrapper,
+.card {
+
+    height: 450px;
+    position: relative;
+    max-width: 300px;
+    margin: auto;
+
+}
+
+.wrapper {
+    perspective: 900px;
+}
+
+.card {
+    text-align: center;
+    transition: all 1.5s cubic-bezier(0.7, -.5, 0.3, 1.8);
+    transform-style: preserve-3d;
+}
+
+.wrapper:hover .card {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    width: 300px;
+    position: relative;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+}
+
+.front {
+    cursor: pointer;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 30px;
+
+    background-size: cover;
+    background-position: left center;
+}
+
+.back {
+    transform: rotateY(180deg);
+    position: absolute;
+    border-radius: 30px;
+    height: 450px;
+
+
+}

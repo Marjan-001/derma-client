@@ -8,7 +8,7 @@ const Subsection1 = () => {
         <section>
             <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
                 <div className="max-w-3xl">
-                    <h2 className=" text-2xl  text-center lg:text-4xl lg:text-left text-blue-600 font-bold sm:text-4xl">
+                    <h2 className=" text-2xl  text-center lg:text-4xl lg:text-left text-blue-400 font-bold sm:text-4xl">
                         Get The Best Skin Treatment
                     </h2>
                 </div>
