@@ -61,7 +61,7 @@ const Reviews = () => {
                     >
                         <div className="avatar flex justify-between items-center place-content-center ">
                             <div className="w-24 rounded-full">
-                                <img src="https://images.pexels.com/photos/1084554/pexels-photo-1084554.jpeg?auto=compress&cs=tinysrgb&w=600" />
+                                <img src="https://images.pexels.com/photos/2224735/pexels-photo-2224735.jpeg?auto=compress&cs=tinysrgb&w=600" />
                             </div>
                             <div className="rating mt-6 gap-1 ">
                                 <input type="radio" name="rating-3" className="mask mask-heart bg-red-400" />
@@ -88,7 +88,7 @@ const Reviews = () => {
                     >
                         <div className="avatar flex justify-between items-center place-content-center ">
                             <div className="w-24 rounded-full">
-                                <img src="https://images.pexels.com/photos/1084554/pexels-photo-1084554.jpeg?auto=compress&cs=tinysrgb&w=600" />
+                                <img src="https://images.pexels.com/photos/3779853/pexels-photo-3779853.png?auto=compress&cs=tinysrgb&w=600" />
                             </div>
                             <div className="rating mt-6 gap-1 ">
                                 <input type="radio" name="rating-3" className="mask mask-heart bg-red-400" />
@@ -100,11 +100,11 @@ const Reviews = () => {
                         </div>
 
                         <h3 className="mt-3 text-lg font-bold text-white sm:text-xl">
-                            LiLy
+                            Lily
                         </h3>
 
                         <p className="mt-4 text-lg text-gray-300">
-                            My experience at the derma clinic was a mixed bag. On one hand, the dermatologist I consulted
+                            My experience at derma was great. The reception staff was welcoming and efficient, ensuring that I didn't have to wait too long. The clinic itself was well-maintained and had a pleasant ambiance. The dermatologist I saw was friendly and seemed experienced. They provided me with a diagnosis and treatment plan that was effective in addressing my skin issue. The only reason I'm not giving a full five-star rating is that it took a bit longer than expected to get an appointment, but once I was there, everything went smoothly.
                         </p>
                     </div>
                 </SwiperSlide>
@@ -115,7 +115,7 @@ const Reviews = () => {
                     >
                         <div className="avatar flex justify-between items-center place-content-center ">
                             <div className="w-24 rounded-full">
-                                <img src="https://images.pexels.com/photos/1084554/pexels-photo-1084554.jpeg?auto=compress&cs=tinysrgb&w=600" />
+                                <img src="https://images.pexels.com/photos/2399641/pexels-photo-2399641.jpeg?auto=compress&cs=tinysrgb&w=600" />
                             </div>
                             <div className="rating mt-6 gap-1 ">
                                 <input type="radio" name="rating-3" className="mask mask-heart bg-red-400" />
@@ -130,12 +130,11 @@ const Reviews = () => {
                             Rachel
                         </h3>
 
-                        <p className="mt-4 text-sm text-gray-300">
-                            My experience at the derma clinic was a mixed bag. On one hand, the dermatologist I consulted
+                        <p className="mt-4 text-lg text-gray-300">
+                            I had a positive experience at the derma clinic overall. The reception staff was welcoming and efficient, ensuring that I didn't have to wait too long. The clinic itself was well-maintained and had a pleasant ambiance. The dermatologist I saw was friendly and seemed experienced. They provided me with a diagnosis and treatment plan that was effective in addressing my skin issue.
                         </p>
                     </div>
                 </SwiperSlide>
-
             </Swiper>
         </div>
     )
