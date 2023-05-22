@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import logo from '../assests/images/DerMa__1_-removebg-preview.png'
 
 const Navbar = () => {
@@ -18,7 +19,7 @@ const Navbar = () => {
             <a className='px-4 -mb-1 border-b-2 hover:border-blue-400  hover:bg-blue-200   text-black '>Treatment</a>
         </li>
         <li>
-            <a className='px-4 -mb-1 border-b-2 hover:border-blue-400  hover:bg-blue-200   text-black '>Appointment</a>
+            <Link to="/appointment" className='px-4 -mb-1 border-b-2 hover:border-blue-400  hover:bg-blue-200   text-black '>Appointment</Link>
         </li>
 
 
@@ -47,7 +48,8 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <h1 className='text-2xl lg:text-4xl  text-blue-400 font-extrabold'>Derma</h1>
+                <Link to='/'>
+                    <h1 className='text-2xl lg:text-4xl  text-blue-400 font-extrabold'>Derma</h1></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal   items-stretch  space-x-3">

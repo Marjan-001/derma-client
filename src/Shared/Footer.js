@@ -7,7 +7,7 @@ const Footer = () => {
                 <ul className="self-center py-6 space-y-4 text-center sm:flex sm:space-y-0 sm:justify-around sm:space-x-4 lg:flex-1 lg:justify-start">
                     <li>Treatments</li>
                     <li>About</li>
-                    <li>Blog</li>
+
                     <li>Pricing</li>
                     <li>Contact</li>
                 </ul>
