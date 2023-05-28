@@ -15,8 +15,8 @@ const AppointmentBanner = ({selectedDate,setSelectedDate}) => {
             <section className="p-6 ">
                 <div className="container grid gap-6  mx-auto  lg:grid-cols-2 xl:grid-cols-5">
                     <div className="w-full  py-16 rounded-md text-center sm:px-12 md:px-16 xl:col-span-2">
-                        <span className="block mb-2  text-center text-blue-500">Choose your appointment date</span>
-                        <DayPicker
+                        <span className="block mb-2 text-start  lg:text-center text-blue-500">Choose your appointment date</span>
+                        <DayPicker 
       mode="single"
       selectedDate={selectedDate}
       onSelect={setSelectedDate}

@@ -8,25 +8,23 @@ const Navbar = () => {
     const navItems = <>
 
         <li>
-            <a className='px-4 -mb-1 border-b-2 hover:border-blue-400 hover:bg-blue-200    text-black '>About</a>
+            <a className='px-4 -mb-1 border-b-2 hover:border-blue-500 hover:bg-blue-300    text-black '>About</a>
 
         </li>
 
+        
         <li>
-            <a className='px-4 -mb-1 border-b-2 hover:border-blue-400  hover:bg-blue-200   text-black '>Contact</a>
+            <a className='px-4 -mb-1 border-b-2 hover:border-blue-500  hover:bg-blue-300   text-black '>Treatment</a>
         </li>
         <li>
-            <a className='px-4 -mb-1 border-b-2 hover:border-blue-400  hover:bg-blue-200   text-black '>Treatment</a>
-        </li>
-        <li>
-            <Link to="/appointment" className='px-4 -mb-1 border-b-2 hover:border-blue-400  hover:bg-blue-200   text-black '>Appointment</Link>
+            <Link to="/appointment" className='px-4 -mb-1 border-b-2 hover:border-blue-500  hover:bg-blue-300   text-black '>Appointment</Link>
         </li>
 
 
 
 
         <li >
-            <a href="#" className=" px-8 py-3 rounded  hover:bg-blue-200 text-blueborder-blue-400" >Sign in</a>
+            <a href="#" className=" px-8 py-3 rounded  hover:border-blue-500   hover:bg-blue-300  text-black " >Sign in</a>
         </li>
 
 

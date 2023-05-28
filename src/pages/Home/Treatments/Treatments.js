@@ -31,6 +31,13 @@ const Treatments = () => {
                     ></TreatmentCard>)
                 }
             </div>
+
+
+
+
+
+
+            
         </div>
     );
 };
