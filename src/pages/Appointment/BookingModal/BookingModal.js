@@ -10,15 +10,15 @@ const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
     e.preventDefault();
     const form = e.target;
     const slot = form.slot.value;
-    const name = form.name.value;
+    const pName = form.name.value;
     const email = form.email.value;
     const phone = form.phone.value;
 
     const booking = {
 
       selectedDate: date,
-      treatment: name,
-      patient: name,
+      treatment: treatment.name,
+      patient:pName,
       email,
       phone,
       slot
@@ -33,7 +33,7 @@ console.log(booking)
   <div className="modal-box">
                     <h3 className="font-bold text-lg text-blue-500">{name}</h3>
                      <label htmlFor="booking-modal" className="btn btn-sm btn-circle bg-blue-700 absolute right-2 top-2">✕</label>
-            <form onSubmit={handleBookingForm} className=' grid grid-cols-1 gap-1 justify-center items-center'>
+            <form onSubmit={handleBookingForm} className=' grid  grid-cols-1 gap-1 justify-center items-center'>
               <input type="text"  value={date} className="input input-bordered mb-2 input-info w-full " disabled />
               <select name='slot' className="select select-bordered select-info w-full " >
   

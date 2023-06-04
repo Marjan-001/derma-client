@@ -24,7 +24,7 @@ const Navbar = () => {
 
 
         <li >
-            <a href="#" className=" px-8 py-3 rounded  hover:border-blue-500   hover:bg-blue-300  text-black " >Sign in</a>
+            <Link to ='/login' className=" px-8 py-3 rounded  hover:border-blue-500   hover:bg-blue-300  text-black " >Sign in</Link>
         </li>
 
 
