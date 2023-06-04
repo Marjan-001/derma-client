@@ -1,11 +1,13 @@
 import { format } from 'date-fns';
 import React from 'react';
+import {  toast } from 'react-toastify';
 
 const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
     
   const { name,slots } = treatment;
   const date = format(selectedDate, "PP")
-  
+
+   
   const handleBookingForm= e=>{
     e.preventDefault();
     const form = e.target;
@@ -23,9 +25,30 @@ const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
       phone,
       slot
     }
-console.log(booking)
-    setTreatment(null)
+    console.log(booking);
+    if (booking) {
+      
+      toast('Appointment Booked Successfully', {
+position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+});
+    }
+
+
+    setTreatment(null);
+    
+    
+      
+
+
   }
+  
     return (
         <>
            <input type="checkbox" id="booking-modal" className="modal-toggle" />
@@ -33,7 +56,7 @@ console.log(booking)
   <div className="modal-box">
                     <h3 className="font-bold text-lg text-blue-500">{name}</h3>
                      <label htmlFor="booking-modal" className="btn btn-sm btn-circle bg-blue-700 absolute right-2 top-2">✕</label>
-            <form onSubmit={handleBookingForm} className=' grid  grid-cols-1 gap-1 justify-center items-center'>
+            <form onSubmit={handleBookingForm } className=' grid  grid-cols-1 gap-1 justify-center items-center'>
               <input type="text"  value={date} className="input input-bordered mb-2 input-info w-full " disabled />
               <select name='slot' className="select select-bordered select-info w-full " >
   
@@ -49,7 +72,8 @@ console.log(booking)
               <input name="email" type="email" placeholder="Your Email" className="input input-bordered mb-2 input-info w-full " />
               <input name="phone" type="number" placeholder="Your Phone Number" className="input input-bordered mb-2 input-info w-full " />
           <br/>
-              <input className='w-full  btn bg-blue-600' type='submit' value="Submit" />
+              <input  className='w-full  btn bg-blue-600' type='submit' value="Submit" />
+           
             </form>
             
   
