@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../pages/context/AuthProvider';
 // import logo from '../assests/images/DerMa__1_-removebg-preview.png'
 
 const Navbar = () => {
 
-
+    const { user, logOut } = useContext(AuthContext)
+    
+    const handleLogOut = () => {
+        
+        logOut()
+        .then(() => { }
+        )
+        .catch(err=>console.log(err))
+    }
     const navItems = <>
 
         <li>
@@ -23,9 +32,15 @@ const Navbar = () => {
 
 
 
-        <li >
-            <Link to ='/login' className=" px-8 py-3 rounded  hover:border-blue-500   hover:bg-blue-300  text-black " >Sign in</Link>
-        </li>
+        {user?.uid ?
+             <li >
+            <button onClick={handleLogOut} className=" px-8 py-3 rounded  hover:border-blue-500   hover:bg-blue-300  text-black " >Sign out</button>
+            </li> :
+             <li >
+            <Link to ='/login' className=" px-8 py-3 rounded  hover:border-blue-500   hover:bg-blue-300  text-black " >Login</Link>
+             </li>
+            
+       }
 
 
 

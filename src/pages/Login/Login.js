@@ -1,12 +1,36 @@
-import React, { useState } from 'react';
+import React, { useContext, useState} from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthProvider';
 
 const Login = () => {
-	 const { register, formState: { errors }, handleSubmit } = useForm();
+  const { register, formState: { errors }, handleSubmit } = useForm();
+  const { signIn,google } = useContext(AuthContext);
+  const { loginError, setLoginError } = useState('');
   const handleSignIn = data => {
-  console.log(data)
-}
+    console.log(data)
+    setLoginError('');
+    signIn(data.email, data.password)
+      .then(res => {
+        const user = res.user;
+        console.log(user);
+      })
+      .catch(err =>
+        
+      {
+        console.log(err.message);
+        setLoginError(err.message);
+       });
+  }
+  const handleGoogleLogin = () => {
+    
+    google()
+      .then(result => { 
+        const user = result.user;
+        console.log(user);
+      })
+    .catch(err=>console.error(err))
+  }
     return (
         <div className='bg-blue-100 h-[800px] flex justify-center items-center'>
 			<div className='border border-white rounded-lg w-96 p-7 shadow-2xl'>
@@ -28,11 +52,17 @@ const Login = () => {
 		            
 					
     
-      <input className='btn btn-square  w-full bg-blue-800' value='Login' type="submit" />
+            <input className='btn btn-square  w-full bg-blue-800' value='Login' type="submit" />
+            <div>
+              {
+                loginError &&
+                <p className='text-red-600 '>{loginError} ko</p>
+              }
+            </div>
           </form>
           <p className='text-sm mt-2'>Don't have an account? <Link to='/signup' className='text-blue-700'>Create new account</Link></p>
           <div className='divider '>OR</div>
-          <button className='btn btn-outline w-full border-blue-700 '>CONTINUE WITH GOOGLE </button>
+          <button onClick={handleGoogleLogin} className='btn btn-outline w-full border-blue-700 '>CONTINUE WITH GOOGLE </button>
         </div>  
 		
 	
