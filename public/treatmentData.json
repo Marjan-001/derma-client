@@ -1,6 +1,5 @@
 [
     {
-        "_id": 1,
         "name": "Doctor Consultation",
         "description": "Get free Consultation from our doctors regularly, getting the correct treatment quickly. ",
         "price": "Free",
@@ -25,7 +24,6 @@
         ]
     },
     {
-        "_id": 2,
         "name": "Advanced Bio-Hydra Facial",
         "description": "Advanced Bio-hydra facial is a medical gradde resurfacing treatment that clears out pores plus hydrate skin.",
         "price": "200/session",
@@ -50,7 +48,6 @@
         ]
     },
     {
-        "_id": 3,
         "name": "Acne Cure",
         "description": "We use blue and red light phototherapy that treats acne breakouts and soothing the inflammation. ",
         "price": "400/session",
@@ -75,7 +72,6 @@
         ]
     },
     {
-        "_id": 4,
         "name": "Advance EPN",
         "description": "Electroporation needling therapy treats fine lines, wrinkles, acne and surgical scars.",
         "price": "500/session",
@@ -124,7 +120,6 @@
         ]
     },
     {
-        "_id": 6,
         "name": "Facial Fat Reduction",
         "description": "Get rid of the unwanted facial fat with our unique facial lifting system that promotes the reproduction of collagen and elastin in the skin.",
         "price": "800/session",

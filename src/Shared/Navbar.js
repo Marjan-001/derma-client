@@ -33,9 +33,12 @@ const Navbar = () => {
 
 
         {user?.uid ?
-             <li >
+            <>
+                <li><Link to='/dashboard' className='px-4 -mb-1 border-b-2 hover:border-blue-500  hover:bg-blue-300   text-black ' >Dashboard</Link></li>
+            <li >
             <button onClick={handleLogOut} className=" px-8 py-3 rounded  hover:border-blue-500   hover:bg-blue-300  text-black " >Sign out</button>
-            </li> :
+            </li>
+             </> :
              <li >
             <Link to ='/login' className=" px-8 py-3 rounded  hover:border-blue-500   hover:bg-blue-300  text-black " >Login</Link>
              </li>

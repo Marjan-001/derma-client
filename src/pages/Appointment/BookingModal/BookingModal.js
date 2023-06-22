@@ -1,11 +1,13 @@
 import { format } from 'date-fns';
-import React from 'react';
+import React, { useContext } from 'react';
 import {  toast } from 'react-toastify';
+import { AuthContext } from '../../context/AuthProvider';
 
-const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
+const BookingModal = ({ treatment, selectedDate, setTreatment ,refetch}) => {
     
   const { name,slots } = treatment;
   const date = format(selectedDate, "PP")
+  const { user } = useContext(AuthContext);
 
    
   const handleBookingForm= e=>{
@@ -26,22 +28,27 @@ const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
       slot
     }
     console.log(booking);
-    if (booking) {
-      
-      toast('Appointment Booked Successfully', {
-position: "top-center",
-autoClose: 5000,
-hideProgressBar: false,
-closeOnClick: true,
-pauseOnHover: true,
-draggable: true,
-progress: undefined,
-theme: "light",
-});
-    }
+    
 
-
-    setTreatment(null);
+    fetch('http://localhost:5000/bookings', {
+      method: 'POST',
+      headers: {
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(booking)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.acknowledged) {
+          setTreatment(null);
+          toast.success('Booking Confirmed')
+          refetch();
+        }
+        
+    })
+    
+    
     
     
       
@@ -68,9 +75,9 @@ theme: "light",
                   )
   }
 </select>
-              <input name="name" type="text" placeholder="Your Name" className="input input-bordered mb-2 input-info w-full " />
-              <input name="email" type="email" placeholder="Your Email" className="input input-bordered mb-2 input-info w-full " />
-              <input name="phone" type="number" placeholder="Your Phone Number" className="input input-bordered mb-2 input-info w-full " />
+              <input name="name" type="text" placeholder="Your Name" defaultValue={user?.displayName} disabled className="input input-bordered mb-2 input-info w-full " required />
+              <input name="email" type="email" placeholder="Your Email" defaultValue={user?.email} disabled className="input input-bordered mb-2 input-info w-full " required />
+              <input name="phone" type="number" placeholder="Your Phone Number" className="input input-bordered mb-2 input-info w-full " required />
           <br/>
               <input  className='w-full  btn bg-blue-600' type='submit' value="Submit" />
            
