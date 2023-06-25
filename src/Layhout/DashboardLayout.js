@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../Shared/Navbar';
 
 import { Outlet } from 'react-router-dom';
+import { AuthContext } from '../pages/context/AuthProvider';
+import { AiOutlineUser } from 'react-icons/ai';
 
 const DashboardLayout = () => {
+    const {user}= useContext(AuthContext)
     return (
         <>
             <Navbar></Navbar>
@@ -17,7 +20,19 @@ const DashboardLayout = () => {
     <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label> 
     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
    
-      <li><a>Sidebar Item 1</a></li>
+                        <li>
+ <div className="avatar">
+  <div className="w-10 rounded-full">
+   {
+    user?.photoURL?
+        <img src={user.photoURL} />
+        : <AiOutlineUser className='bg-blue-500 w-10 h-10 '></AiOutlineUser>
+
+   }
+  </div>
+  <p className='font-semibold'>{user.displayName}</p>
+</div>
+                        </li>
       <li><a>Sidebar Item 2</a></li>
     </ul>
   

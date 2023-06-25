@@ -37,9 +37,9 @@ const Login = () => {
     google()
       .then(result => { 
         const user = result.user;
-         toast('Successfully login')
         navigate(from, { replace: true });
-        console.log(user);
+         toast('Successfully login')
+        
       })
     .catch(err=>console.error(err))
   }
