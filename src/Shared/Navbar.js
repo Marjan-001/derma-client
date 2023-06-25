@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../pages/context/AuthProvider';
+import { FiSidebar } from 'react-icons/fi';
 // import logo from '../assests/images/DerMa__1_-removebg-preview.png'
 
 const Navbar = () => {
@@ -72,6 +73,9 @@ const Navbar = () => {
                     {navItems}
                 </ul>
             </div>
+            <label tabIndex={1} htmlFor="dashboard-sidebar" className=" lg:hidden">
+                        <FiSidebar></FiSidebar>
+                    </label>
 
         </div>
 

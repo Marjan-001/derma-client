@@ -32,7 +32,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment ,refetch}) => {
 
     fetch('http://localhost:5000/bookings', {
       method: 'POST',
-      headers: {
+      headers: { 
         'content-type':'application/json'
       },
       body:JSON.stringify(booking)
@@ -44,6 +44,9 @@ const BookingModal = ({ treatment, selectedDate, setTreatment ,refetch}) => {
           setTreatment(null);
           toast.success('Booking Confirmed')
           refetch();
+        }
+        else {
+          toast.error(data.message)
         }
         
     })
