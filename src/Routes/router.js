@@ -4,9 +4,10 @@ import Home from "../pages/Home/Home";
 import Appointment from "../pages/Appointment/Appointment/Appointment";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
-import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+// import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../Layhout/DashboardLayout";
+import MyAppointment from "../pages/Dashboard/MyAppointment";
 
 
 export const router = createBrowserRouter([
@@ -44,7 +45,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element:<Dashboard></Dashboard>
+                element:<MyAppointment></MyAppointment>
             }
         ]
     }

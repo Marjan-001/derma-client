@@ -16,8 +16,8 @@ const DashboardLayout = () => {
    <Outlet></Outlet>
   
   </div> 
-  <div className="drawer-side">
-    <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label> 
+  <div className="drawer-side border border-blue-600 rounded-lg border-dashed">
+    <label htmlFor="dashboard-sidebar" className="drawer-overlay "></label> 
     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
    
                         <li>
@@ -26,7 +26,7 @@ const DashboardLayout = () => {
    {
     user?.photoURL?
         <img src={user.photoURL} />
-        : <AiOutlineUser className='bg-blue-500 w-10 h-10 '></AiOutlineUser>
+        : <AiOutlineUser className='bg-blue-400 w-10 h-10 '></AiOutlineUser>
 
    }
   </div>
