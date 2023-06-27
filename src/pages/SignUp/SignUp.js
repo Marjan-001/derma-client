@@ -21,12 +21,12 @@ const SignUp = () => {
       toast("Successfully Sign Up")
       console.log(user)
       const userInfo = {
-        displayName:data.firstname
+        displayName: data.firstname
       }
       updateUser(userInfo)
         .then(() => {
 
-          navigate('/')
+          postUserData(data.firstname,data.email);
          })
       .catch(err=>console.log(err))
       })
@@ -34,6 +34,22 @@ const SignUp = () => {
     
   }
   
+  const postUserData = (firstname, email) => {
+    const user = { firstname, email }
+    fetch('http://localhost:5000/users', {
+      method: 'POST',
+      headers: {
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(user)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data())
+         navigate('/')
+      
+    })
+  }
   
   const [showPassword, setShowPassword] = useState(false);
 
