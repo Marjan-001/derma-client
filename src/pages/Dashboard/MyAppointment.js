@@ -9,7 +9,11 @@ const MyAppointment = () => {
 		queryKey: ['bookings', user?.email],
 
 		queryFn: async () => {
-			const res = await fetch(url);
+			const res = await fetch(url, {
+				headers: {
+					authorization:`bearer ${localStorage.getItem('accessToken')}`
+				}
+			});
 			const data = await res.json();
 			return data;
 		}
@@ -23,8 +27,8 @@ const MyAppointment = () => {
 				<div className="overflow-x-auto">
 					<table className="min-w-full text-xs">
 						<thead className="rounded-t-lg">
-							<tr className="">
-								<th  className="p-3 text-left ">#</th>
+							<tr className="border-b bg-blue-200  border-blue-500">
+								<th  className="p-3 text-left ">No.</th>
 								<th  className="p-3 text-left">Name</th>
 								<th className="p-3 text-left">Treatment</th>
 								<th className="p-3 text-left">Date</th>
@@ -35,8 +39,9 @@ const MyAppointment = () => {
 						<tbody>
 
 							{
-								bookings.map((booking, i) =>
-									<tr className=' border-b border-opacity-20 border-blue-700' >
+								
+								bookings?.map((booking, i) =>
+									<tr className=' border-b  border-blue-500' >
 										<td className="px-3 py-2 text-left">
 											{i + 1}
 										</td>
@@ -52,10 +57,11 @@ const MyAppointment = () => {
 										<td className="px-3 py-2">
 											{booking.slot}
 										</td>
-
+									
 
 									</tr>
-								)
+
+									)
 							}
 
 

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Navbar from '../Shared/Navbar';
 
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../pages/context/AuthProvider';
 import { AiOutlineUser } from 'react-icons/ai';
 
@@ -18,9 +18,9 @@ const DashboardLayout = () => {
   </div> 
   <div className="drawer-side border border-blue-600 rounded-lg border-dashed">
     <label htmlFor="dashboard-sidebar" className="drawer-overlay "></label> 
-    <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+    <ul className="menu p-4 w-80 h-full bg-base-200 text-black hover:bg-blue-200">
    
-                        <li>
+ <li>
  <div className="avatar">
   <div className="w-10 rounded-full">
    {
@@ -32,8 +32,9 @@ const DashboardLayout = () => {
   </div>
   <p className='font-semibold'>{user.displayName}</p>
 </div>
-                        </li>
-      <li><a>Sidebar Item 2</a></li>
+</li>
+      <li><Link to ='/dashboard'>My Appointments</Link></li>
+      <li><Link to ='/dashboard/users'>All Users</Link></li>
     </ul>
   
   </div>

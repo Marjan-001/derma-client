@@ -3,15 +3,20 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import { toast } from 'react-toastify';
+import useToken from '../../customHooks/useToken';
 
 
 
 const SignUp = () => {
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+  const { register, formState: { errors }, handleSubmit } = useForm();
   const { createUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  const [userEmail, setUserEmail] = useState('');
+  const [token]=useToken(userEmail)
+  if (token) {
+  navigate('/')
+}
   const handleSignUp =( data   )=> {
 
        
@@ -45,12 +50,11 @@ const SignUp = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data())
-         navigate('/')
-      
+        setUserEmail(email)
+       
     })
   }
-  
+ 
   const [showPassword, setShowPassword] = useState(false);
 
   const handleTogglePassword = () => {
