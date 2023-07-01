@@ -1,15 +1,35 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const AllUser = () => {
-    const {data: allusers =[] } = useQuery({
+    const {data: allusers =[] ,refetch} = useQuery({
         queryKey: ['allusers'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/allusers')
             const data = await res.json();
             return data;
         }
-    })
+	})
+	const handleMakeAdmin = id => {
+		
+		fetch(`http://localhost:5000/allusers/admin/${id}`,
+			{
+				method: 'PUT',
+				headers: {
+					authorization:`bearer ${localStorage.getItem('accessToken')}`
+				}
+			})
+			.then(res => res.json())
+			.then(data => {
+				
+				if (data.acknowledged) {
+					toast.success('Made admin successfully');
+					refetch();
+				}
+			})
+
+	}
     return (
         <div>
 			<h3 className='p-2 mb-2 text-xl font-semibold text-blue-600 '>All Users</h3>
@@ -22,11 +42,13 @@ const AllUser = () => {
 								<th  className="p-3 text-left ">No.</th>
 								<th  className="p-3 text-left">Name</th>
 								<th className="p-3 text-left">Email</th>
+								<th className="p-3 text-left">Admin</th>
+								<th className="p-3 text-left">Delete</th>
 								
 
 							</tr>
 						</thead>
-						<tbody>
+						<tbody >
 
 							{
 								
@@ -41,6 +63,8 @@ const AllUser = () => {
 										<td className="px-3 py-2">
 											{user.email}
 										</td>
+										<td >{user?.role !=='admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs border-hidden bg-blue-500'>Make Admin</button>}</td>
+										<td ><button className='btn btn-xs border-hidden btn-error'>Delete</button></td>
 										
 
 									</tr>

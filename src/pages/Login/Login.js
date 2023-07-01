@@ -8,13 +8,12 @@ import useToken from '../../customHooks/useToken';
 const Login = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
   const { signIn,google } = useContext(AuthContext);
-  
-   const location = useLocation();
+  const [userEmailLogin, setUserEmailLogin] = useState('');
+  const [token] = useToken(userEmailLogin)
+  const location = useLocation();
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || '/';
-  const [userEmailLogin, setUserEmailLogin] = useState('');
-  const [token] = useToken(userEmailLogin)
   if (token) {
           navigate(from, { replace: true });
 
@@ -38,12 +37,12 @@ const Login = () => {
       
        });
   }
-  const handleGoogleLogin = () => {
+  const handleGoogleLogin = (data) => {
     
-    google()
+    google(data.email)
       .then(result => { 
         const user = result.user;
-       setUserEmailLogin(user.email)
+       setUserEmailLogin(data.email)
        
          toast('Successfully login')
         

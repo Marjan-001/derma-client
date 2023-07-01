@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
                 element:<MyAppointment></MyAppointment>
             },
             {
-                path: '/dashboard/users',
+                path: '/dashboard/allusers',
                 element:<AllUser></AllUser>
             }
         ]

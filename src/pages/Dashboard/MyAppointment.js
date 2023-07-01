@@ -40,7 +40,7 @@ const MyAppointment = () => {
 
 							{
 								
-								bookings?.map((booking, i) =>
+								bookings?.bookings?.map((booking, i) =>
 									<tr className=' border-b  border-blue-500' >
 										<td className="px-3 py-2 text-left">
 											{i + 1}
