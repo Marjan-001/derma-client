@@ -4,9 +4,14 @@ import Navbar from '../Shared/Navbar';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../pages/context/AuthProvider';
 import { AiOutlineUser } from 'react-icons/ai';
+import useAdmin from '../customHooks/useAdmin';
 
 const DashboardLayout = () => {
-    const {user}= useContext(AuthContext)
+  const { user } = useContext(AuthContext);
+  // console.log(user.email)
+  const [isAdmin] = useAdmin(user?.email)
+  console.log(isAdmin)
+  
     return (
         <>
             <Navbar></Navbar>
@@ -28,13 +33,22 @@ const DashboardLayout = () => {
         <img src={user.photoURL} />
         : <AiOutlineUser className='bg-blue-400 w-10 h-10 '></AiOutlineUser>
 
-   }
+                    }
+                    
   </div>
   <p className='font-semibold'>{user.displayName}</p>
 </div>
 </li>
       <li><Link to ='/dashboard'>My Appointments</Link></li>
-      <li><Link to ='/dashboard/allusers'>All Users</Link></li>
+             
+              {
+                isAdmin &&
+                <>
+                     <li><Link to='/dashboard/allusers'>All Users</Link></li>
+                </>
+              
+
+              }
     </ul>
   
   </div>
