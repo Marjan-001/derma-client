@@ -4,41 +4,52 @@ import { useForm } from 'react-hook-form';
 const AddDoctor = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const handleDoctor=()=> {
-    
+    const handleDoctor=(data)=> {
+    console.log(data)
     }
 
     return (
         <div className='w-96 p-7'>
-            <h2 className='p-2 mb-2 text-xl font-semibold text-blue-600 '>Add Doctor</h2>
+            <h2 className='p-2 mb-2 text-xl font-semibold text-blue-600 '>Add Dermatologist</h2>
             <form onSubmit={handleSubmit(handleDoctor)}>
                      <div className="form-control w-full max-w-xs">
-                       <label className="label"><span className="label-text">First Name</span></label>
-              <input type="text" className="input mb-1 input-bordered w-full max-w-xs"
-                {...register("firstname", { required: 'First name is required' })} />	
-              {errors.firstname && <p className='text-xs text-red-600' role="alert">{errors.firstname?.message}</p>}
+                       <label className="label"><span className="label-text">Name</span></label>
+              <input type="text" className="input mb-1 input-bordered border-info w-full max-w-xs"
+                {...register("name", { required: 'name is required' })} />	
+              {errors.name && <p className='text-xs text-red-600' role="alert">{errors.name?.message}</p>}
                     </div>
                     
-                     
+                      
 
 		            <div className="form-control w-full max-w-xs">
                        <label className="label"><span className="label-text">Email</span></label>
-              <input type="email" className="input mb-1 input-bordered w-full max-w-xs"
+              <input type="email" className="input mb-1 input-bordered border-info w-full max-w-xs"
                 {...register("email", { required: 'Email is required' })} />	
               {errors.email && <p className='text-xs text-red-600' role="alert">{errors.email?.message}</p>}
                     
                     </div>
-		            <div className="form-control w-full max-w-xs">
-                       <label className="label"><span className="label-text">Password</span></label>
-             
-                         
+		        <div className="form-control w-full max-w-xs">
+                       <label className="label"><span className="label-text">Specialty</span></label>
+                        <select {...register("specialty")}  className="select select-info w-full max-w-xs"  >
+                         <option disabled selected>Select specialty</option>
+                         <option  >Skin Specialist </option>
+                         <option >Hair Specialist</option>
+                         <option >Cosmetic Surgery</option>
+                         <option className='Laser Specialist'>Laser Specialist</option>
+                        </select >
+                </div>
+                
+                <div className="form-control  w-full max-w-xs">
+                 <label className="label"><span className="label-text">Upload Image</span></label>
+                 <input type='file'  {...register("image", { required: 'Image is required' })} className="input   py-11 input-bordered border-dotted border-info w-full max-w-xs"></input>
+              {errors.image && <p className='text-xs text-red-600' role="alert">{errors.image?.message}</p>}
 
-             
-            </div>
+                </div>
+                
 		            
 					
     
-      <input className='btn btn-square mt-2 w-full bg-blue-800' value='Sign up' type="submit" />
+      <input className='btn btn-square mt-4 w-full bg-blue-800' value='Add Dermatologist' type="submit" />
           </form>
         </div>
     );
