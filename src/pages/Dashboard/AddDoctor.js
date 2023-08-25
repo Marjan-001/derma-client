@@ -1,11 +1,35 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const AddDoctor = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const handleDoctor=(data)=> {
-    console.log(data)
+  const handleDoctor = (data) => {
+    const doctor = {
+      name: data.name,
+      email: data.email,
+      specialty:data.specialty
+
+    }
+    console.log(doctor)
+    fetch('http://localhost:5000/doctors',
+      {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          authorization:`bearer ${localStorage.getItem('accessToken')}`
+        },
+        body:JSON.stringify(doctor)
+      })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result)
+        toast.success(`${data.name} is added successfully`);
+         
+      })
+
+    
     }
 
     return (
@@ -41,7 +65,7 @@ const AddDoctor = () => {
                 
                 <div className="form-control  w-full max-w-xs">
                  <label className="label"><span className="label-text">Upload Image</span></label>
-                 <input type='file'  {...register("image", { required: 'Image is required' })} className="input   py-11 input-bordered border-dotted border-info w-full max-w-xs"></input>
+                 <input type='file'  {...register("image")} className="input   py-11 input-bordered border-dotted border-info w-full max-w-xs"></input>
               {errors.image && <p className='text-xs text-red-600' role="alert">{errors.image?.message}</p>}
 
                 </div>
