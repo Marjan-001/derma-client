@@ -7,14 +7,14 @@ const ManageDoctor = () => {
 const {data: doctors =[] ,refetch} = useQuery({
         queryKey: ['doctors'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/doctors')
+            const res = await fetch('https://derma-server.vercel.app/doctors')
             const data = await res.json();
             return data;
         }
 })
     
     const handleDeletedoctor = id => {
-		fetch(`http://localhost:5000/doctors/${id}`)
+		fetch(`https://derma-server.vercel.app/doctors/${id}`)
 			.then(res => res.json())
 			.then(data => {
 				

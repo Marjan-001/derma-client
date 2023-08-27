@@ -12,7 +12,7 @@ const date= format(selectedDate,'PP')
         
         queryKey: ['appointmentOptions',date],
         queryFn: () => 
-            fetch(`http://localhost:5000/appointmentOptions?date=${date}`)
+            fetch(`https://derma-server.vercel.app/appointmentOptions?date=${date}`)
             .then(res => res.json()) 
         
     })

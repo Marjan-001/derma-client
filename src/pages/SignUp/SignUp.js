@@ -41,7 +41,7 @@ const SignUp = () => {
   
   const postUserData = (firstname, email) => {
     const user = { firstname, email }
-    fetch('http://localhost:5000/users', {
+    fetch('https://derma-server.vercel.app/users', {
       method: 'POST',
       headers: {
         'content-type':'application/json'

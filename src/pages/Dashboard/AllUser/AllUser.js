@@ -6,14 +6,14 @@ const AllUser = () => {
     const {data: allusers =[] ,refetch} = useQuery({
         queryKey: ['allusers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allusers')
+            const res = await fetch('https://derma-server.vercel.app/allusers')
             const data = await res.json();
             return data;
         }
 	})
 	const handleMakeAdmin = id => {
 		
-		fetch(`http://localhost:5000/allusers/admin/${id}`,
+		fetch(`https://derma-server.vercel.app/allusers/admin/${id}`,
 			{
 				method: 'PUT',
 				headers: {
@@ -32,7 +32,7 @@ const AllUser = () => {
 	}
 
 	const handleDeleteUser = id => {
-		fetch(`http://localhost:5000/allusers/${id}`)
+		fetch(`https://derma-server.vercel.app/allusers/${id}`)
 			.then(res => res.json())
 			.then(data => {
 				

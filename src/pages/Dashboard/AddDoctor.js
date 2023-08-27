@@ -13,7 +13,7 @@ const AddDoctor = () => {
 
     }
     console.log(doctor)
-    fetch('http://localhost:5000/doctors',
+    fetch('https://derma-server.vercel.app/doctors',
       {
         method: 'POST',
         headers: {

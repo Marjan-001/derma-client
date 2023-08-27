@@ -6,7 +6,7 @@ const useAdmin = email => {
         const [isAdminLoading, setIsAdminLoading] = useState(true);
     useEffect(() => {
           if (email) {
-            fetch(`http://localhost:5000/allusers/admin/${email}`)
+            fetch(`https://derma-server.vercel.app/allusers/admin/${email}`)
             .then(res => res.json())
             .then(data => {
                 setIsAdmin(data.isAdmin)
